@@ -1,0 +1,36 @@
+{
+  "name": "tab-extension",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Fernando Moreira <nandomoreira.me@gmail.com> (https://nandomoreira.me/)",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run build",
+    "build": "npm run build:scripts && npm run build:styles",
+    "build:scripts": "browserify src/scripts/index.js -t [ babelify --presets [ es2015 metal-jsx ] ] -t [ envify ] -o dist/scripts/popup.js",
+    "build:styles": "node-sass src/sass/main.sass dist/styles/popup.css -q",
+    "watch": "parallelshell 'npm run watch:scripts' 'npm run watch:styles'",
+    "watch:scripts": "onchange 'src/scripts/*.js' -- npm run build:scripts",
+    "watch:styles": "onchange 'src/sass/*.sass' -- npm run build:styles",
+    "package": "npm run package:blink && npm run package:gecko",
+    "package:blink": "cd dist && zip -r ../tab-extension.zip * && cd ..",
+    "package:gecko": "cd dist && zip -r ../tab-extension.xpi * && cd .."
+  },
+  "dependencies": {
+    "byte-size": "2.0.0",
+    "metal-component": "1.0.0-rc.16",
+    "metal-jsx": "1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-metal-jsx": "0.0.3",
+    "babelify": "7.3.0",
+    "browserify": "13.0.1",
+    "envify": "3.4.0",
+    "node-sass": "3.7.0",
+    "onchange": "2.4.0",
+    "parallelshell": "2.0.0",
+    "watchify": "3.7.0"
+  }
+}

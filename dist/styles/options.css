@@ -1,0 +1,42 @@
+body {
+  font-family: "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-size: 14px;
+}
+
+.description {
+  color: grey;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.input-container {
+  clear: both;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.input-container label {
+  display: inline-block;
+  width: 65px;
+}
+
+.input-container input[type='number'] {
+  width: 150px;
+  padding: 8px 12px;
+}
+
+.button {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 5px;
+  border: none;
+  background: none;
+  padding: 6px 12px;
+}
+
+.status {
+  display: none;
+  font-size: 12px;
+  font-style: italic;
+  margin-left: 5px;
+}
