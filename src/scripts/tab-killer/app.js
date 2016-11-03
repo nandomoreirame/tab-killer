@@ -1,8 +1,4 @@
 import JSXComponent from 'metal-jsx';
-// import Loader from './loader';
-// import Result from './result';
-// import Failure from './failure';
-// import defaultBudget from '../data/budget';
 
 class App extends JSXComponent {
   attached() {

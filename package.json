@@ -8,11 +8,11 @@
   "scripts": {
     "start": "npm run build",
     "build": "npm run build:scripts && npm run build:styles",
-    "build:scripts": "browserify src/scripts/index.js -t [ babelify --presets [ es2015 metal-jsx ] ] -t [ envify ] -o dist/scripts/popup.js",
+    "build:scripts": "browserify src/scripts/popup.js -t [ babelify --presets [ es2015 metal-jsx ] ] -t [ envify ] -o dist/scripts/popup.js;browserify src/scripts/background.js -t [ babelify --presets [ es2015 metal-jsx ] ] -t [ envify ] -o dist/scripts/background.js",
     "build:styles": "node-sass src/sass/main.sass dist/styles/popup.css -q",
     "watch": "parallelshell 'npm run watch:scripts' 'npm run watch:styles'",
-    "watch:scripts": "onchange 'src/scripts/*.js' -- npm run build:scripts",
-    "watch:styles": "onchange 'src/sass/*.sass' -- npm run build:styles",
+    "watch:scripts": "onchange 'src/scripts/**/*.js' -- npm run build:scripts",
+    "watch:styles": "onchange 'src/sass/**/*.sass' -- npm run build:styles",
     "package": "npm run package:blink && npm run package:gecko",
     "package:blink": "cd dist && zip -r ../tab-extension.zip * && cd ..",
     "package:gecko": "cd dist && zip -r ../tab-extension.xpi * && cd .."
