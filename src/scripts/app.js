@@ -48,7 +48,7 @@ class App extends JSXComponent {
             {tabs.map((tab, i) => (
               <li key={i} class="tab-killer__list-item">
                 <a class="tab-killer__link" href="#" onClick={() => this.openTab(tab.id, tab.windowId)}>
-                  <img src={tab.favIconUrl} alt="" class="tab-killer__favicon" />
+                  {tab.favIconUrl && <img src={tab.favIconUrl} alt="" class="tab-killer__favicon" />}
                   <span>{tab.title}</span>
                 </a>
                 <button class="tab-killer__close" onClick={() => this.closeTab(tab.id)}>&times;</button>
